@@ -1,0 +1,19 @@
+name: luhaydan_app
+description: "Quran App for Mohamed Al-Luhaydan"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  just_audio: ^0.9.36
+  audio_video_progress_bar: ^2.0.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/audio/
+    - assets/images/
