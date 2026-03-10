@@ -1,0 +1,22 @@
+name: Build_My_APK
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+      
+      # هنا التعديل يا مستر نوش (تغيير المجلد)
+      - run: flutter pub get
+        working-directory: ./M_luhaidan_app
+      
+      - run: flutter build apk --release
+        working-directory: ./M_luhaidan_app
+        
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Al-Luhaydan-App
+          path: M_luhaidan_app/build/app/outputs/flutter-apk/app-release.apk
